@@ -1,11 +1,15 @@
 #include <cassert>
 #include <fstream>
+#include <fstream>
 #include "AI.h"
 
 
+
+// a struct for my highscore table to save and load
 struct scoreBoard
 {
 	std::string playerName;
+
 	int score;
 
 };
@@ -15,9 +19,12 @@ struct scoreBoard
 
 int main()
 {
+
+	
+	//generage a random number 
 	srand((unsigned int)time(nullptr));
 	AI bruce;
-
+	//the original output to the game to explain the game.
 	std::cout << "Welcome to the number guessing game" << std::endl << std::endl;
 	std::cout << "It's simple you guess a number between 1 and 1000, if you get it you win" << std::endl;
 	std::cout << "If you guess is to big it will be told to guess lower and if you guess to low you will be told to guess higher" << std::endl;
@@ -25,15 +32,15 @@ int main()
 	system("pause");
 	system("cls");
 
-
+	// run AI.h
 	bruce.run();
 	
 
-    
+    // out putting text to tell the player to guess 
 	std::cout << "now make your guess " << std::endl;
 	std::cout << "guess " << std::endl;
 
-	
+	// all my values and elements
 	int randomeValue;
 	int guessedNumber = 0;
 	int numberOfGuesses = 0;
@@ -45,7 +52,7 @@ int main()
 
 	scoreBoard highScoreTable[arraySize];
 
-	highScoreTable[0].playerName = "Ed";
+	highScoreTable[0].playerName = "ED";
 	highScoreTable[1].playerName = "Andrew";
 	highScoreTable[2].playerName = "Brent";
 	highScoreTable[3].playerName = "Nat";
@@ -60,11 +67,11 @@ int main()
 	finalScore = numberOfGuesses;
 
 
-	srand((unsigned int)time(nullptr));
+	// a while loop to help the player by telling them to guess higher and lower depending on their guess
 
 	while (randomeValue != guessedNumber)
 	{
-
+		// the player to input their number
 		std::cin >> guessedNumber;
 
 		if (std::cin.fail())
@@ -94,13 +101,13 @@ int main()
 			std::cout << "congratulations!!! you got it right " << std::endl;
 		}
 
-
+		// adding a guess everytime the player inputs a number 
 		numberOfGuesses++;
 		scoreBoard currentPlayer;
 
 	}
 	finalScore = numberOfGuesses;
-
+	// outputs the final amout of guesses
 	std::cout << "It took you " << numberOfGuesses << " guess(s): " << std::endl << std::endl;
 	std::cout << "What is your name?: " << std::endl;
 	std::cin >> name;
@@ -127,7 +134,7 @@ int main()
 	}
 
 
-
+	// allows the plaayers input name to be added to the highscore table with their score in the right spot
 	for (int index = 0; index < 5; index++)
 	{
 		std::cout << highScoreTable[index].playerName << "\t" << highScoreTable[index].score << std::endl << std::endl;

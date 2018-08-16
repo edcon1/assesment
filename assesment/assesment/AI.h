@@ -11,6 +11,7 @@
 class AI
 {
 private:
+	// all values and inputs 
 	int randomValue = 0;
 	int AIGuess = 0;
 	int AIAnswer = 0;
@@ -20,7 +21,7 @@ private:
 	int min = 1;
 	int max = 1000;
 	
-
+	// a binary search which works in way like an AI
 public:
 	AI()
 	{
@@ -33,7 +34,6 @@ public:
 		while (AIGuess != randomValue)
 		{
 			AIGuess = (min + max) / 2;
-			std::cout << AIGuess << std::endl;
 
 			if (AIGuess > randomValue)
 			{
@@ -50,7 +50,7 @@ public:
 			}
 			AINumberOfGuesses++;
 		}
-		
+		//prints the AI's number of guesses
 		std::cout << "AI took: " << AINumberOfGuesses << "number of guesses, can you do better? " << std::endl;
 	}
  
